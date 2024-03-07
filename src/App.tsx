@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <Context.Provider value={"Toto"}>
+      <Context.Provider value={{prenom: prenomDeLaFamille, setPrenom: setPrenomDeLaFamille}}>
         <h1> Arrière Grand Père : {prenomDeLaFamille}</h1>
         <ArriereGrandPere/>
       </Context.Provider>
