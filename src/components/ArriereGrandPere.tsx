@@ -1,12 +1,16 @@
+import { Context } from '../App'
 import GrandPere from './GrandPere'
+import { useContext } from "react"
 
-function ArriereGrandPere(props: {prenomARGP: string, onNameChange: (prenom: string) => void}) {
+function ArriereGrandPere() {
+
+  const prenomDeLaFamille = useContext(Context)
 
   return (
     <>
         <div className="ArriereGrandPere">
-          <h2>ArriereGrandPere: {props.prenomARGP}</h2>
-          <GrandPere prenomGP={props.prenomARGP} onNameChange={props.onNameChange}/>
+          <h2>ArriereGrandPere: {prenomDeLaFamille}</h2>
+          <GrandPere />
         </div>
     </>
   )
