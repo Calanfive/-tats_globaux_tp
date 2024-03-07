@@ -1,16 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
+import { Context } from "../App";
 
-function Frere(props : {prenomF : string, onNameChange: (prenom: string) => void }) {
+function Frere() {
+
+  const prenomF = useContext(Context).prenom
+  const setPrenom = useContext(Context).setPrenom
+
     const handleclick = useCallback(
         () => {
-            props.onNameChange('Cam');
-        } ,[props.onNameChange]
+          setPrenom('Bobby')
+        } ,[setPrenom]
     );
 
         return (
           <>
               <div className="Frere">
-                <h2>Frere: {props.prenomF}</h2>
+                <h2>Frere: {prenomF}</h2>
                 <button onClick={handleclick}>Nouveau prénom</button>
               </div>
           </>

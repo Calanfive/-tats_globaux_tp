@@ -4,12 +4,12 @@ import { useContext } from "react"
 
 function GrandPere() {
 
-  const prenomDeLaFamille = useContext(Context)
+  const prenomGP = useContext(Context).prenom
 
   return (
     <>
         <div className="GrandPere">
-          <h2>GrandPere: {prenomDeLaFamille}</h2>
+          <h2>GrandPere: {prenomGP}</h2>
           <Pere />
         </div>
     </>
