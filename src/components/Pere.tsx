@@ -1,13 +1,16 @@
+import { useRecoilValue } from 'recoil'
+import { familyNameState } from '../atoms/familyatom'
 import Frere from './Frere'
 
-function Pere(props : {prenomP : string, onNameChange: (prenom: string) => void}) {
+function Pere() {
+
+  const prenomP = useRecoilValue(familyNameState)
 
   return (
     <>
         <div className="Pere">
-          <h2>Pere: {props.prenomP}</h2>
-          
-          <Frere prenomF={props.prenomP} onNameChange={props.onNameChange}/>
+          <h2>Pere: {prenomP}</h2>
+          <Frere/>
         </div>
     </>
   )

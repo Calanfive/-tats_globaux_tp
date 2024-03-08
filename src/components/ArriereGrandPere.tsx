@@ -1,12 +1,16 @@
 import GrandPere from './GrandPere'
+import { useRecoilValue } from "recoil";
+import { familyNameState } from "../atoms/familyatom";
 
-function ArriereGrandPere(props: {prenomARGP: string, onNameChange: (prenom: string) => void}) {
+function ArriereGrandPere() {
+
+  const prenomARGP = useRecoilValue(familyNameState);
 
   return (
     <>
         <div className="ArriereGrandPere">
-          <h2>ArriereGrandPere: {props.prenomARGP}</h2>
-          <GrandPere prenomGP={props.prenomARGP} onNameChange={props.onNameChange}/>
+          <h2>ArriereGrandPere: {prenomARGP}</h2>
+          <GrandPere />
         </div>
     </>
   )

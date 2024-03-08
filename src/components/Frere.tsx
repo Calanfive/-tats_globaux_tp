@@ -1,16 +1,22 @@
 import { useCallback } from "react";
+import { familyNameState } from "../atoms/familyatom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-function Frere(props : {prenomF : string, onNameChange: (prenom: string) => void }) {
+function Frere() {
+
+  const prenom = useRecoilValue(familyNameState)
+  const setNewPrenom = useSetRecoilState(familyNameState)
+
     const handleclick = useCallback(
         () => {
-            props.onNameChange('Cam');
-        } ,[props.onNameChange]
+          setNewPrenom('Cam');
+        } ,[setNewPrenom]
     );
 
         return (
           <>
               <div className="Frere">
-                <h2>Frere: {props.prenomF}</h2>
+                <h2>Frere: {prenom}</h2>
                 <button onClick={handleclick}>Nouveau prénom</button>
               </div>
           </>
