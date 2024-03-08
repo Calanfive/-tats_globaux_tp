@@ -1,10 +1,14 @@
-import { useCallback, useContext } from "react";
-import { Context } from "../App";
+import { useCallback } from "react";
+import { useFamilyStore } from "../App";
 
 function Frere() {
 
-  const prenomF = useContext(Context).prenom
-  const setPrenom = useContext(Context).setPrenom
+  // autre façon écriture
+  // const { prenom, setPrenom } = useFamilyStore()
+  // const [newPrenom, setNewPrenom] = useState(prenom)
+
+  const prenomF = useFamilyStore().prenom
+  const setPrenom = useFamilyStore().setPrenom
 
     const handleclick = useCallback(
         () => {

@@ -1,25 +1,26 @@
-import { useState, createContext } from 'react'
 import './App.css'
+import { create } from 'zustand'
 import ArriereGrandPere from './components/ArriereGrandPere'
 
-export const Context = createContext<{
+interface Family {
   prenom : string,
-  setPrenom: (prenom : string) => void
-}>({
-  prenom: "",
-  setPrenom: () => {}
-})
+  setPrenom: (newName : string) => void
+}
+
+export const useFamilyStore = create<Family>()((set) => ({
+  prenom : "Geoffroy",
+  setPrenom: (newName) => set((state) => ({ prenom: newName}))
+}))
+
+//   setPrenom: (newName) => set((state) => ({ prenom: state.prenom + newName}))
+// state.qqch = ancien état (important pour incrémenter)
 
 function App() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [prenomDeLaFamille, setPrenomDeLaFamille] = useState<string>('Geoffroy')
-
   return (
     <>
-      <Context.Provider value={{prenom: prenomDeLaFamille, setPrenom: setPrenomDeLaFamille}}>
-        <h1> Arrière Grand Père : {prenomDeLaFamille}</h1>
+      <div>
         <ArriereGrandPere/>
-      </Context.Provider>
+      </div>
     </>
   )
 }

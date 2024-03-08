@@ -1,10 +1,9 @@
-import { Context } from '../App'
+import { useFamilyStore } from '../App'
 import Pere from './Pere'
-import { useContext } from "react"
 
 function GrandPere() {
 
-  const prenomGP = useContext(Context).prenom
+  const prenomGP = useFamilyStore().prenom
 
   return (
     <>
